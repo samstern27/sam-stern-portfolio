@@ -7,10 +7,10 @@ import type { Link } from "@/types/index";
 import type { JSX } from "react";
 
 const links: Link[] = [
-  { href: "/", label: "home", id: 1 },
-  { href: "/projects", label: "projects", id: 2 },
-  { href: "/about", label: "about", id: 3 },
-  { href: "/contact", label: "contact", id: 4 },
+  { href: "/", label: "home", id: 1, aria: "Home" },
+  { href: "/projects", label: "projects", id: 2, aria: "Projects" },
+  { href: "/about", label: "about", id: 3, aria: "About" },
+  { href: "/contact", label: "contact", id: 4, aria: "Contact" },
 ] as const;
 
 export default function Navbar(): JSX.Element {
@@ -23,15 +23,19 @@ export default function Navbar(): JSX.Element {
   }, []);
 
   return (
-    <nav className="bg-black p-5 sticky w-full z-50">
+    <nav
+      className="sticky top-0 w-full z-[9999] px-5 py-3 fade-in-left"
+      aria-label="Main navigation"
+    >
       {/* Desktop Navbar */}
-      <div className="hidden lg:flex justify-end items-center max-w-6xl ml-auto ">
+      <div className="hidden lg:flex justify-end items-center max-w-6xl ml-auto">
         <ul className="flex justify-end gap-10 w-full">
           {links.map((link) => (
             <li key={link.id}>
               <NavLink
                 href={link.href}
                 isActive={mounted ? pathname === link.href : false}
+                aria={link.aria}
               >
                 {link.label}
               </NavLink>
@@ -42,12 +46,12 @@ export default function Navbar(): JSX.Element {
 
       {/* Mobile Navbar */}
       <div className="flex lg:hidden justify-end items-center max-w-6xl mx-auto bg-black">
-        {/* Hamburger Button with animation */}
         <button
-          className="group h-12 w-12  flex flex-col justify-center items-center gap-1.5 p-2 "
+          className="group h-12 w-12 flex flex-col justify-center items-center gap-1.5 p-2"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
           aria-label="Toggle Menu"
         >
+          {/* Hamburger */}
           <span
             className={`h-1 w-8 rounded-full bg-cyan-50 transition-all duration-300 ${
               isMobileOpen ? "rotate-45 translate-y-2.5" : ""
@@ -66,10 +70,10 @@ export default function Navbar(): JSX.Element {
         </button>
       </div>
 
-      {/* Mobile Menu with slide-down animation */}
+      {/* Mobile Menu */}
       <div
-        className={`lg:hidden absolute top-full left-0 w-full bg-white/20 transition-max-height duration-600 overflow-hidden ${
-          isMobileOpen ? "max-h-screen" : "max-h-0"
+        className={`lg:hidden fixed top-[64px] left-0 w-full bg-black/95 transition-max-height duration-600 overflow-hidden ${
+          isMobileOpen ? "max-h-[calc(100vh-64px)]" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col p-4 gap-4">
@@ -78,6 +82,7 @@ export default function Navbar(): JSX.Element {
               <NavLink
                 href={link.href}
                 isActive={mounted ? pathname === link.href : false}
+                aria={link.aria}
               >
                 {link.label}
               </NavLink>

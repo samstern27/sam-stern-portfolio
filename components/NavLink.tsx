@@ -1,10 +1,16 @@
 import Link from "next/link";
 import { NavLinkProps } from "@/types/index";
 
-export default function NavLink({ children, href, isActive }: NavLinkProps) {
+export default function NavLink({
+  children,
+  href,
+  isActive,
+  aria,
+}: NavLinkProps) {
   return (
     <Link
       href={href}
+      aria-label={aria}
       className={`${
         isActive ? "text-cyan-300" : "text-cyan-50"
       } relative inline-block text-xl font-sans tracking-widest font-thin
