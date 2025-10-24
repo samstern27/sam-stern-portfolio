@@ -126,6 +126,16 @@
 }
 
 /* Optional: add delays */
+.delay-0-3 {
+  animation-delay: 0.3s;
+}
+.delay-0-6 {
+  animation-delay: 0.6s;
+}
+.delay-0-9 {
+  animation-delay: 0.9s;
+}
+
 .delay-1 {
   animation-delay: 1.1s;
 }
@@ -190,7 +200,31 @@
   animation: fade-in-left 0.7s ease-out forwards;
 }
 
+.swipe-in-left {
+  opacity: 0;
+  animation: fade-in-left 0.8s ease-in forwards;
+}
+
+.has-loaded {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .group:hover .fade-in-left {
   opacity: 1;
   animation: fade-in-left 0.7s ease-out forwards;
+}
+
+@keyframes fade-gray {
+  0% {
+    background-color: #ffffff;
+  }
+  100% {
+    background-color: #fafafa;
+  }
+}
+
+.fade-gray:hover {
+  background-color: #ffffff;
+  animation: fade-gray 0.2s ease-in forwards;
 }

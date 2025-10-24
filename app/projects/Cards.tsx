@@ -5,14 +5,21 @@ import type { CardData } from "@/types";
 import { cardData } from "@/lib/cardData";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 export default function Cards(): JSX.Element {
+  const [loaded, setLoaded] = useState(false);
   const handleCardClick = (url: string | null) => {
     if (url) window.open(url, "_blank");
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 800); // match animation duration
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-5 bg-neutral-500/30 rounded-t-4xl sm:rounded-4xl shadow-xl w-full sm:w-[90%] max-w-6xl mx-auto place-items-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-5 md:mb-15 bg-cyan-950 rounded-t-4xl sm:rounded-4xl shadow-xl w-full sm:w-[80%] max-w-8xl mx-auto lg:p-10 place-items-center opacity-0 fade-in">
       {cardData.map((card) => (
         <div
           key={card.id}
@@ -20,7 +27,9 @@ export default function Cards(): JSX.Element {
             handleCardClick(card.id !== 3 ? card.vercel : card.github)
           }
           popoverTarget="_blank"
-          className="cursor-pointer flex flex-col justify-between w-full h-full rounded-3xl lg:max-w-sm bg-neutral-900 text-white shadow-xl transform transition-transform duration-300 hover:scale-102"
+          className={`${card.className} ${
+            loaded ? "has-loaded" : "swipe-in-left"
+          }`}
         >
           <Image
             src={card.imageSrc}
@@ -29,12 +38,12 @@ export default function Cards(): JSX.Element {
             alt={card.alt}
             className="rounded-t-3xl"
           />
-          <div className="flex flex-col justify-start items-center h-full p-6 gap-4">
-            <h2 className="text-3xl leading-snug font-semibold text-cyan-100">
+          <div className="flex flex-col justify-start items-center h-full p-6 gap-2">
+            <h2 className="text-3xl leading-snug font-semibold text-cyan-900">
               {card.name}
             </h2>
-            <p className="text-base text-center leading-relaxed max-w-100 md:max-w-70">
-              {card.brief}
+            <p className="text-sm text-justify mb-5 leading-relaxed max-w-100 md:max-w-90 text-slate-800">
+              {card.description}
             </p>
             <div className="flex flex-row justify-center mt-auto gap-5 items-center my-5">
               <a
@@ -47,9 +56,9 @@ export default function Cards(): JSX.Element {
               >
                 <span
                   className="
-        absolute  right-15 translate-y-1/2 
-        text-white text-sm  
-        opacity-0 group-hover:opacity-100  hover:hidden transition-opacity duration-300
+        absolute right-15 translate-y-1/2 
+        text-cyan-950 text-sm
+        md:opacity-0 md:group-hover:opacity-100  md:hover:hidden md:transition-opacity md:duration-300
       "
                 >
                   GitHub
@@ -80,9 +89,9 @@ export default function Cards(): JSX.Element {
                   />
                   <span
                     className="
-        absolute left-15 translate-y-1/5 bg-white py-1 px-3 inv-rad-l-3
-        text-cyan-800 text-sm   
-        opacity-0 group-hover:opacity-100  hover:hidden transition-opacity duration-300
+        absolute  left-15 translate-y-1/2 
+        text-cyan-950 text-sm  
+        md:opacity-0 md:group-hover:opacity-100  md:hover:hidden md:transition-opacity md:duration-300
       "
                   >
                     Vercel

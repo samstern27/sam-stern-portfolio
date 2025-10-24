@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black `}>
+      <body className={`${inter.className} bg-black`}>
         <Navbar />
         <main className="flex-1 overflow-auto">{children}</main>
       </body>
