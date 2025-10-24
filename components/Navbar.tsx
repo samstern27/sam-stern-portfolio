@@ -24,7 +24,7 @@ export default function Navbar(): JSX.Element {
 
   return (
     <nav
-      className="sticky top-0 w-full z-[9999] px-5 py-3 fade-in-left"
+      className="sticky top-0 w-full z-[9999] px-0 py-0 lg:px-5 lg:py-5 fade-in-left"
       aria-label="Main navigation"
     >
       {/* Desktop Navbar */}
@@ -45,7 +45,7 @@ export default function Navbar(): JSX.Element {
       </div>
 
       {/* Mobile Navbar */}
-      <div className="flex lg:hidden justify-end items-center max-w-6xl mx-auto bg-black">
+      <div className="flex lg:hidden justify-end items-center max-w-6xl mx-auto p-3 bg-black">
         <button
           className="group h-12 w-12 flex flex-col justify-center items-center gap-1.5 p-2"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -72,7 +72,7 @@ export default function Navbar(): JSX.Element {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed top-[64px] left-0 w-full bg-black/95 transition-max-height duration-600 overflow-hidden ${
+        className={`lg:hidden fixed left-0 w-full bg-black/95 transition-max-height duration-600 overflow-hidden ${
           isMobileOpen ? "max-h-[calc(100vh-64px)]" : "max-h-0"
         }`}
       >

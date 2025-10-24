@@ -1,4 +1,5 @@
 "use client";
+
 import { cn } from "@/lib/utils";
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
@@ -71,10 +72,15 @@ export const WavyBackground: React.FC<WavyBackgroundProps> = ({
     };
 
     const render = () => {
+      // Draw background
+      ctx.globalAlpha = 1;
       ctx.fillStyle = backgroundFill || "black";
-      ctx.globalAlpha = waveOpacity;
       ctx.fillRect(0, 0, w, h);
+
+      // Draw waves
+      ctx.globalAlpha = waveOpacity;
       drawWave(5);
+
       animationId = requestAnimationFrame(render);
     };
 
@@ -82,8 +88,6 @@ export const WavyBackground: React.FC<WavyBackgroundProps> = ({
       w = ctx.canvas.width = window.innerWidth;
       h = ctx.canvas.height = window.innerHeight;
       ctx.filter = `blur(${blur}px)`;
-      ctx.fillStyle = backgroundFill || "black";
-      ctx.fillRect(0, 0, w, h);
     });
 
     render();
@@ -93,7 +97,7 @@ export const WavyBackground: React.FC<WavyBackgroundProps> = ({
     init();
     return () => cancelAnimationFrame(animationId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // ok to leave deps empty because animationId & init are stable inside useEffect
+  }, []);
 
   useEffect(() => {
     setIsSafari(
@@ -105,19 +109,27 @@ export const WavyBackground: React.FC<WavyBackgroundProps> = ({
 
   return (
     <div
-      className={cn(
-        "fixed inset-0 flex flex-col items-center justify-center overflow-hidden bg-black",
-        containerClassName
-      )}
+      className={cn("relative w-full min-h-screen", containerClassName)}
       {...props}
     >
+      {/* Fixed background canvas */}
       <canvas
-        className="absolute inset-0 z-0 h-full w-full"
+        className="fixed inset-0 -z-10 w-full h-full pointer-events-none"
         ref={canvasRef}
-        id="canvas"
         style={{ ...(isSafari ? { filter: `blur(${blur}px)` } : {}) }}
       />
+      {/* Scrollable content */}
       <div className={cn("relative z-10", className)}>{children}</div>
     </div>
   );
 };
+
+{
+  /* <WavyBackground
+            waveWidth={5}
+            waveOpacity={0.1}
+            blur={0}
+            colors={["#00b4d8", "#48cae4", "#90e0ef", "#ade8f4", "#caf0f8"]}
+            containerClassName="z-10  opacity-0 fade-in"
+          /> */
+}

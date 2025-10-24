@@ -21,3 +21,16 @@ export type TechStackLogo = {
   src: string;
   alt: string;
 };
+
+export type CardData = {
+  id: number;
+  name: string;
+  github: string;
+  vercel: string;
+  description: string;
+  brief: string;
+  imageSrc: string;
+  width: number;
+  height: number;
+  alt: string;
+};
