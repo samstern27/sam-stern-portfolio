@@ -13,6 +13,7 @@ export default function TechStackLogos(): JSX.Element {
           width={56}
           height={56}
           alt={logo.alt}
+          title={logo.name}
           key={logo.id}
         />
       ))}

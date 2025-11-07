@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -107,6 +109,12 @@
   animation-delay: 1.5s; /* Delay before starting */
 }
 
+.light-fade {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  animation-delay: 1s;
+}
+
 /* Swipe down */
 
 @keyframes fade-in-down {
@@ -182,6 +190,21 @@
   animation-delay: 2.5s;
 }
 
+/* Light swipe down */
+
+@keyframes swipe-down-light {
+  0% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.swipe-down-light {
+  animation: swipe-down-light 1s ease-in-out;
+}
+
 /* Swipe from left */
 
 @keyframes fade-in-left {
@@ -215,16 +238,145 @@
   animation: fade-in-left 0.7s ease-out forwards;
 }
 
-@keyframes fade-gray {
-  0% {
-    background-color: #ffffff;
-  }
+.center-justified {
+  text-align: justify;
+  text-align-last: center;
+}
+
+/* ------------------------------- Animated Glowing Border -------------------------- */
+
+@property --clr-1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgb(146, 47, 146);
+}
+@property --clr-2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value:  rgb(84, 97, 216);
+}
+@property --clr-3 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgb(0, 115, 128);
+}
+
+@property --glow-deg {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: -0deg;
+}
+
+@keyframes glow {
   100% {
-    background-color: #fafafa;
+    --glow-deg: 360deg;
   }
 }
 
-.fade-gray:hover {
-  background-color: #ffffff;
-  animation: fade-gray 0.2s ease-in forwards;
+.glowing-border {
+--glow-gradient: var(--clr-1), var(--clr-2), var(--clr-3), var(--clr-1);
+--glow-intensity: 0.25;
+--glow-size: 1rem;
+--border-width: 3px;
+
+  margin-block: 1rem;
+  /* padding: 8rem 3rem; */
+  max-width: 100ch;
+
+  border: var(--border-width, 3px) solid transparent;
+  border-radius: 1rem;
+  background: 
+    linear-gradient(rgb(29, 28, 28) 0 0) padding-box,
+    conic-gradient(from var(--glow-deg), var(--glow-gradient)) border-box;
+  position: relative;
+  isolation: isolate;
+
+  animation: glow 4s infinite linear; 
+}
+
+.glowing-border::before,
+.glowing-border::after {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+}
+
+.glowing-border::before {
+  z-index: -1;
+  background: rgb(29, 28, 28);
+  inset: 0.5rem;
+  filter: blur(var(--glow-size, 1rem));
+}
+
+.glowing-border::after {
+  z-index: -2;
+  inset: -1.5rem;
+  background: conic-gradient(from var(--glow-deg), var(--glow-gradient));
+  filter: blur(var(--glow-size, 1rem));
+  opacity: var(--glow-intensity, 0.125);
+}
+
+/* ---------------------------- Glowing Bulb ----------------------------- */
+
+
+.glowing-light {
+  background: linear-gradient(
+    calc(var(--glow-deg) + 90deg),
+    var(--clr-1) 0%,
+    var(--clr-2) 33%,
+    var(--clr-3) 66%,
+    var(--clr-1) 100%
+  );
+  background-size: 200% 200%; 
+  animation: glow 10s linear infinite;
+  filter: blur(8px);
+  opacity: 0.9;
+}
+
+/* ------------------ Infinite Logo Scroll --------------------- */
+
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 20px));
+  }
+}
+
+.infinite-scroll {
+  animation: infinite-scroll 20s linear infinite;
+}
+
+.fade-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+
+  /* Smooth fading of logos on edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+/* the gradient overlays */
+.fade-wrapper::before,
+.fade-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 30%;
+  pointer-events: none;
+  z-index: 10;
+  background: linear-gradient(to right, transparent, transparent);
+}
+
+.fade-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, transparent, transparent);
 }

@@ -14,8 +14,7 @@ export const cardData: CardData[] = [
     width: 3350,
     height: 1866,
     alt: "Screenshot of Barbid",
-    className:
-      "cursor-pointer flex flex-col justify-between w-full h-full rounded-3xl lg:max-w-md bg-white fade-gray text-white shadow-2xl transform transition-transform duration-300 md:hover:scale-102 shadow-black/50",
+    
   },
   {
     id: 2,
@@ -30,8 +29,7 @@ export const cardData: CardData[] = [
     width: 3338,
     height: 1858,
     alt: "Screenshot of UI Kit",
-    className:
-      "cursor-pointer flex flex-col justify-between w-full h-full rounded-3xl lg:max-w-md bg-white fade-gray text-white shadow-2xl transform transition-transform duration-300 md:hover:scale-102 shadow-black/50",
+    
   },
   {
     id: 3,
@@ -46,7 +44,6 @@ export const cardData: CardData[] = [
     width: 3338,
     height: 1854,
     alt: "Screenshot of portfolio website",
-    className:
-      "cursor-pointer flex flex-col justify-between w-full h-full rounded-3xl lg:max-w-md bg-white fade-gray text-white shadow-2xl transform transition-transform duration-300 md:hover:scale-102 shadow-black/50",
+    
   },
 ];

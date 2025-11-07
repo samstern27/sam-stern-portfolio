@@ -5,6 +5,8 @@ export type NavLinkProps = {
   href: string;
   isActive: boolean;
   aria: string;
+  pathname: string;
+  name: string;
 };
 
 export type Link = {
@@ -12,6 +14,7 @@ export type Link = {
   label: string;
   id: number;
   aria: string;
+ 
 };
 
 export type TechStackLogo = {
@@ -33,5 +36,21 @@ export type CardData = {
   width: number;
   height: number;
   alt: string;
-  className: string;
+  
 };
+
+export type LinkData = {
+  id: number;
+  name: string;
+  href: string;
+  src: string;
+  alt: string;
+  title: string;
+  nextWidth: number;
+  nextHeight: number;
+}
+
+export type AnimationContextType = {
+  animateLayout: (action: string) => void;
+};
+

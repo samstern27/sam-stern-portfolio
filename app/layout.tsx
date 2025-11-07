@@ -1,4 +1,7 @@
 import Navbar from "@/components/Navbar";
+import SocialLinks from "@/components/SocialLinks";
+import Footer from "@/components/Footer";
+import AnimationProvider from "@/context/AnimationContext";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -19,9 +22,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black`}>
-        <Navbar />
-        <main className="flex-1 overflow-auto">{children}</main>
+      <body
+        className={`${inter.className} bg-neutral-950 min-h-screen flex flex-col overflow-auto`}
+      >
+        <AnimationProvider>
+          <Navbar />
+
+          {/* Desktop social links */}
+          <div className="hidden md:block absolute top-21 left-10 z-50">
+            <SocialLinks />
+          </div>
+
+          {/* Scrollable content area with bottom padding for footer */}
+          <main className="flex-1 h-[calc(100vh-3.531rem)] overflow-auto z-10">
+            {children}
+          </main>
+
+          {/* Fixed footer */}
+          <Footer />
+        </AnimationProvider>
       </body>
     </html>
   );
