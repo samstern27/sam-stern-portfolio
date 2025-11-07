@@ -37,7 +37,7 @@ export const cardData: CardData[] = [
     github: "https://github.com/samstern27/sam-stern-portfolio",
     vercel: "https://sam-sterns-portfolio.vercel.app/",
     description:
-      "My personal website, built with Next.js, React, and TypeScript, serves as a showcase of my projects, skills, and development experience. It features a clean, fully responsive layout with smooth animations and a focus on modern front-end practices, component reusability, and performance optimization. The site reflects my dedication to creating intuitive, high-quality user experiences through thoughtful design and efficient code.",
+      "My personal website, built with Next.js, React, TypeScript, and Tailwind serves as a showcase of my projects, skills, and development experience. It features a clean, fully responsive layout with smooth animations and a focus on modern front-end practices, component reusability, and performance optimization. The site reflects my dedication to creating intuitive, high-quality user experiences through thoughtful design and efficient code.",
     brief:
       "My personal site built with Next.js, React, and TypeScript to showcase projects, skills, and front-end expertise.",
     imageSrc: "/portfolio-image.png",
