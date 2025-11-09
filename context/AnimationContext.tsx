@@ -31,7 +31,7 @@ export default function AnimationProvider({
 
   useEffect(() => {
     fadeInVideo();
-  }, [pathname]); // fade in whenever route changes
+  }, [pathname]);
 
   const animateLayout = (pageToPage: string): Promise<void> => {
     return new Promise((resolve) => {
@@ -71,7 +71,7 @@ export default function AnimationProvider({
       }).to(
         ".background-video",
         {
-          opacity: 0, // fade out
+          opacity: 0,
           duration: 1,
           ease: "power2.inOut",
         },

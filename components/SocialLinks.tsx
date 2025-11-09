@@ -1,24 +1,34 @@
 import Image from "next/image";
-import { linkData } from "@/lib/linkData";
-import type { JSX } from "react";
+import { socialLinkData } from "@/lib/socialLinkData";
 
-export default function SocialLinks(): JSX.Element {
+/**
+ * SocialLinks – renders social profile icons linking to external sites.
+ * Uses <nav> with aria-label for accessibility; links open safely in new tabs.
+ */
+
+export default function SocialLinks() {
   return (
-    <ul className="flex flex-row md:items-center md:flex-col">
-      {linkData.map((link) => (
-        <li key={link.id}>
-          <a href={link.href} target="_blank">
-            <Image
-              src={link.src}
-              width={link.nextWidth}
-              height={link.nextHeight}
-              alt={link.alt}
+    <nav aria-label="Social links">
+      <ul className="flex flex-row md:items-center md:flex-col">
+        {socialLinkData.map((link) => (
+          <li key={link.id} className="md:my-3 mr-3">
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               title={link.title}
-              className="w-7 md:hover:scale-120 p-0.5 rounded-sm border-cyan-300 duration-300 mr-3 md:my-3 "
-            />
-          </a>
-        </li>
-      ))}
-    </ul>
+            >
+              <Image
+                src={link.src}
+                width={link.nextWidth}
+                height={link.nextHeight}
+                alt={link.alt}
+                className="w-7 rounded-sm border-cyan-300 duration-300 md:hover:scale-120"
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }

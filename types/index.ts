@@ -39,7 +39,7 @@ export type CardData = {
   
 };
 
-export type LinkData = {
+export type SocialLinkData = {
   id: number;
   name: string;
   href: string;

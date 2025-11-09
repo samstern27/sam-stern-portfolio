@@ -1,12 +1,12 @@
-import type { LinkData } from '@/types';
+import type { SocialLinkData } from '@/types';
 
-export const linkData: LinkData[] = [
+export const socialLinkData: SocialLinkData[] = [
   {
     id: 1,
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/sam-stern-645642127/",
     src: "/linkedin.svg",
-    alt: "LinkedIn logo",
+    alt: "Visit my LinkedIn profile",
     title: "LinkedIn",
     nextWidth: 800,
     nextHeight: 800,
@@ -16,7 +16,7 @@ export const linkData: LinkData[] = [
     name: "Github",
     href: "https://github.com/samstern27",
     src: "/gh-gray.svg",
-    alt: "Github logo",
+    alt: "Visit my Github profile",
     title: "Sam Stern's Github",
     nextWidth: 64,
     nextHeight: 64,

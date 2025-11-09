@@ -27,18 +27,12 @@ export default function RootLayout({
       >
         <AnimationProvider>
           <Navbar />
-
-          {/* Desktop social links */}
-          <div className="hidden md:block absolute top-21 left-10 z-50">
+          <aside className="hidden md:block absolute top-21 left-10 z-50">
             <SocialLinks />
-          </div>
-
-          {/* Scrollable content area with bottom padding for footer */}
+          </aside>
           <main className="flex-1 h-[calc(100vh-3.531rem)] overflow-auto z-10">
             {children}
           </main>
-
-          {/* Fixed footer */}
           <Footer />
         </AnimationProvider>
       </body>
