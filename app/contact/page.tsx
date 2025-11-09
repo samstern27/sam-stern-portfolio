@@ -1,11 +1,9 @@
 "use client";
 
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
-import type { JSX } from "react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
-export default function Contact(): JSX.Element {
+export default function Contact() {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");

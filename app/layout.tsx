@@ -26,10 +26,13 @@ export default function RootLayout({
         className={`${inter.className} bg-neutral-950 min-h-screen flex flex-col overflow-auto`}
       >
         <AnimationProvider>
-          <Navbar />
-          <aside className="hidden md:block absolute top-21 left-10 z-50">
-            <SocialLinks />
-          </aside>
+          <header className="relative w-full z-[9999]">
+            <Navbar />
+            <aside className="hidden md:block absolute top-21 left-10 z-50">
+              <SocialLinks />
+            </aside>
+          </header>
+
           <main className="flex-1 h-[calc(100vh-3.531rem)] overflow-auto z-10">
             {children}
           </main>

@@ -19,6 +19,7 @@ export default function AnimationProvider({
   children: React.ReactNode;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
+
   const pathname = usePathname();
 
   const fadeInVideo = () => {

@@ -1,8 +1,7 @@
-import type { JSX } from "react";
 import TechStack from "@/components/TechStack";
 import BackgroundVideo from "@/components/BackgroundVideo";
 
-export default function Home(): JSX.Element {
+export default function Home() {
   return (
     <>
       <BackgroundVideo />

@@ -1,8 +1,6 @@
 import ProjectCards from "@/components/ProjectCards";
 
-import type { JSX } from "react";
-
-export default function ProjectsPage(): JSX.Element {
+export default function ProjectsPage() {
   return (
     <div className="isolate px-6 pt-24 sm:pt-27 lg:px-8 page-swipe">
       <div className="mx-auto max-w-2xl text-center">

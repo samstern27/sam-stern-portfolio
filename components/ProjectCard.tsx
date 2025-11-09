@@ -1,7 +1,6 @@
 "use client";
 
 import { CardData } from "@/types";
-import type { JSX } from "react";
 import Image from "next/image";
 
 export default function ProjectCard({
@@ -9,13 +8,12 @@ export default function ProjectCard({
   name,
   github,
   vercel,
-  description,
   brief,
   imageSrc,
   width,
   height,
   alt,
-}: CardData): JSX.Element {
+}: CardData) {
   const handleCardClick = (url: string | null) => {
     if (url) window.open(url, "_blank");
   };

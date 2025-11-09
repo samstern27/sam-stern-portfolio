@@ -1,75 +1,55 @@
 "use client";
 
 import SocialLinks from "@/components/SocialLinks";
+import { links } from "@/lib/navLinkData";
 
 import NavLink from "@/components/NavLink";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 
-import type { Link } from "@/types/index";
-import type { JSX } from "react";
+/**
+ * Navbar component:
+ * A responsive navigation bar with:
+ * - Desktop links (highlight active)
+ * - Mobile hamburger menu
+ * - Mobile menu with links and social icons
+ */
 
-const links: Link[] = [
-  {
-    href: "/",
-    label: "home",
-    id: 1,
-    aria: "Home",
-  },
-  {
-    href: "/projects",
-    label: "projects",
-    id: 2,
-    aria: "Projects",
-  },
-  {
-    href: "/about",
-    label: "about",
-    id: 3,
-    aria: "About",
-  },
-  {
-    href: "/contact",
-    label: "contact",
-    id: 4,
-    aria: "Contact",
-  },
-] as const;
-
-export default function Navbar(): JSX.Element {
+export default function Navbar() {
   const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // Render navigation links; closes mobile menu on click if callback provided
+  function NavLinks({ onClick }: { onClick?: () => void }) {
+    return links.map((link) => (
+      <li key={link.id}>
+        <NavLink
+          href={link.href}
+          name={link.label}
+          isActive={pathname === link.href}
+          aria={link.aria}
+          pathname={pathname}
+          onClick={onClick}
+        >
+          {link.label}
+        </NavLink>
+      </li>
+    ));
+  }
 
   return (
     <nav
-      className="sticky  top-0 w-full z-[9999] px-0 py-0 md:px-4 md:py-4 bg-neutral-900 border-b-1 border-b-neutral-700 box-border"
+      className="sticky top-0 w-full z-[9999] px-0 py-0 md:px-4 md:py-4 bg-neutral-900 border-b-1 border-b-neutral-700 box-border"
       aria-label="Main navigation"
     >
-      <h3 className="absolute top-6 left-5 md:top-4 text-neutral-300 text-center font-sans text-xl font-light tracking-tighter leading-tight swipe-in-left">
+      <h1 className="absolute top-6 left-5 md:top-4 text-neutral-300 text-center font-sans text-xl font-light tracking-tighter leading-tight swipe-in-left">
         sam stern
-      </h3>
+      </h1>
       <div className="flex">
         {/* Desktop Navbar */}
         <div className="hidden md:flex justify-end items-center max-w-6xl ml-auto bg-neutral-900 ">
           <ul className="flex justify-end gap-10 w-full">
-            {links.map((link) => (
-              <li key={link.id}>
-                <NavLink
-                  href={link.href}
-                  name={link.label}
-                  isActive={mounted ? pathname === link.href : false}
-                  aria={link.aria}
-                  pathname={pathname}
-                >
-                  {link.label}
-                </NavLink>
-              </li>
-            ))}
+            <NavLinks />
           </ul>
         </div>
       </div>
@@ -107,19 +87,7 @@ export default function Navbar(): JSX.Element {
         }`}
       >
         <ul className="flex flex-col p-6 gap-4">
-          {links.map((link) => (
-            <li key={link.id} onClick={() => setIsMobileOpen(false)}>
-              <NavLink
-                href={link.href}
-                name={link.label}
-                isActive={mounted ? pathname === link.href : false}
-                aria={link.aria}
-                pathname={pathname}
-              >
-                {link.label}
-              </NavLink>
-            </li>
-          ))}
+          <NavLinks onClick={() => setIsMobileOpen(false)} />
         </ul>
         <div className="flex flex-row md:hidden justify-start p-5 z-50">
           <SocialLinks />

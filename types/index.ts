@@ -3,10 +3,11 @@ import type { ReactNode } from "react";
 export type NavLinkProps = {
   children: ReactNode;
   href: string;
-  isActive: boolean;
-  aria: string;
-  pathname: string;
   name: string;
+  isActive?: boolean;
+  aria?: string;
+  pathname?: string;
+  onClick?: () => void;
 };
 
 export type Link = {
@@ -30,7 +31,6 @@ export type CardData = {
   name: string;
   github: string;
   vercel: string;
-  description: string;
   brief: string;
   imageSrc: string;
   width: number;

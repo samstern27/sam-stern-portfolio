@@ -1,7 +1,6 @@
-import type { JSX } from "react";
 import Image from "next/image";
 
-export default function AboutPage(): JSX.Element {
+export default function AboutPage() {
   return (
     <>
       <div className="relative mb-10 page-swipe">
