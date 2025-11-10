@@ -27,10 +27,10 @@ export type TechStackLogo = {
 };
 
 export type CardData = {
-  id: number;
   name: string;
   github: string;
   vercel: string;
+  primaryUrl: string;
   brief: string;
   imageSrc: string;
   width: number;

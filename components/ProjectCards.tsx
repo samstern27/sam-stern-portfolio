@@ -24,11 +24,11 @@ export default function ProjectCards() {
     >
       {cardData.map((card) => (
         <ProjectCard
-          key={card.id}
-          id={card.id}
+          key={card.name}
           name={card.name}
           github={card.github}
           vercel={card.vercel}
+          primaryUrl={card.primaryUrl}
           brief={card.brief}
           imageSrc={card.imageSrc}
           width={card.width}
