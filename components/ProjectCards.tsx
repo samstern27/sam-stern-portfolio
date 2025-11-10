@@ -8,33 +8,33 @@ import { useGSAP } from "@gsap/react";
 
 export default function ProjectCards() {
   const containerRef = useRef<HTMLDivElement>(null);
-  useGSAP(() => {
-    gsap.from(".project-card", {
-      opacity: 0,
-      x: -100,
-      delay: 1,
-      stagger: 0.5,
-      duration: 1,
-    });
-  }, [{ scope: containerRef }]);
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".project-card",
+        {
+          opacity: 0,
+          x: -100,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          delay: 0.5,
+          stagger: 0.5,
+          duration: 2,
+          ease: "power2.out",
+        }
+      );
+    },
+    { scope: containerRef }
+  );
   return (
     <div
       className="flex flex-col justify-center gap-10 items-center my-8 mx-auto w-full"
       ref={containerRef}
     >
       {cardData.map((card) => (
-        <ProjectCard
-          key={card.name}
-          name={card.name}
-          github={card.github}
-          vercel={card.vercel}
-          primaryUrl={card.primaryUrl}
-          brief={card.brief}
-          imageSrc={card.imageSrc}
-          width={card.width}
-          height={card.height}
-          alt={card.alt}
-        />
+        <ProjectCard key={card.name} {...card} />
       ))}
     </div>
   );
