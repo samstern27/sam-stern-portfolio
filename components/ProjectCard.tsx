@@ -51,7 +51,7 @@ export default function ProjectCard({
           </div>
         </div>
         {/* Github & Vercel links */}
-        <div className="flex flex-row md:flex-col justify-center gap-5 items-center my-5">
+        <div className="flex flex-row md:flex-col justify-center gap-5 items-center my-5 md:mr-10">
           <a
             href={github}
             target="_blank"
