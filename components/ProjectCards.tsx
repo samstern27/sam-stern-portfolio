@@ -21,7 +21,7 @@ export default function ProjectCards() {
           x: 0,
           delay: 0.5,
           stagger: 0.5,
-          duration: 2,
+          duration: 1,
           ease: "power2.out",
         }
       );
