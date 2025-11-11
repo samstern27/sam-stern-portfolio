@@ -2,6 +2,7 @@
 
 import SocialLinks from "@/components/SocialLinks";
 import { links } from "@/lib/navLinkData";
+import Link from "next/link";
 
 import NavLink from "@/components/NavLink";
 import { useState } from "react";
@@ -42,9 +43,13 @@ export default function Navbar() {
       className="sticky top-0 w-full z-[9999] px-0 py-0 md:px-4 md:py-4 bg-neutral-900 border-b-1 border-b-neutral-700 box-border"
       aria-label="Main navigation"
     >
-      <h1 className="absolute top-6 left-5 md:top-4 text-neutral-300 text-center font-sans text-xl font-light tracking-tighter leading-tight swipe-in-left">
+      <Link
+        href="/"
+        aria-label="Sam Stern logotype, also link to home page"
+        className="absolute top-6 left-5 md:top-4 text-neutral-300 text-center font-sans text-xl font-light tracking-tighter leading-tight swipe-in-left"
+      >
         sam stern
-      </h1>
+      </Link>
       <div className="flex">
         {/* Desktop Navbar */}
         <div className="hidden md:flex justify-end items-center max-w-6xl ml-auto bg-neutral-900 ">
