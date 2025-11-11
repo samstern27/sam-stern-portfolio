@@ -18,7 +18,8 @@ export default function NavLink({
   isActive,
   aria,
   pathname,
-}: NavLinkProps) {
+  onClick,
+}: NavLinkProps & { onClick?: () => void }) {
   const router = useRouter();
   const { animateLayout } = useAnimation();
 
@@ -27,6 +28,7 @@ export default function NavLink({
      * so the custom page transition animation can finish first.
      */
     e.preventDefault();
+    if (onClick) onClick();
     try {
       /* Run a layout animation based on the current route and link name.
        * Example: if pathname is "/about" and name is "contact",
