@@ -55,13 +55,25 @@ export default function Contact() {
     };
 
     setLoading(true);
+    console.log("Sending email with params:", {
+      service: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+      template: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+      templateParams: {
+        from_name: name,
+        from_email: email,
+        company,
+        to_name: "Sam Stern",
+        message,
+      },
+    });
 
     emailjs
       .send(
-        process.env.EMAILJS_SERVICE_ID ?? "",
-        process.env.EMAILJS_TEMPLATE_ID ?? "",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
         templateParams,
-        process.env.EMAILJS_PUBLIC_KEY ?? ""
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? ""
       )
       .then(() => {
         // Clear form and show success message
