@@ -3,29 +3,46 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
+/**
+ * Contact component
+ *
+ * Renders a contact form with Name, Company, Email, and Message fields.
+ * Uses EmailJS to send form submissions and provides success/error feedback.
+ * Includes basic client-side validation and responsive styling.
+ */
 export default function Contact() {
+  // Form state
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  // UI state for loading and feedback messages
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
 
+  /**
+   * Handles form submission
+   * Validates required fields and sends email via EmailJS
+   * Shows success or error messages with temporary visibility
+   */
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSuccess("");
     setError("");
 
-    if (!email) {
-      setError("Please enter your email");
-      return;
-    }
-    if (!name) {
-      setError("Please enter your name");
+    // Basic validation for required fields
+    if (!name || !email || !message) {
+      setError(
+        !name
+          ? "Please enter your name"
+          : !email
+          ? "Please enter your email"
+          : "Please enter a message"
+      );
       return;
     }
 
@@ -38,6 +55,7 @@ export default function Contact() {
     };
 
     setLoading(true);
+
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
@@ -46,50 +64,49 @@ export default function Contact() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? ""
       )
       .then(() => {
+        // Clear form and show success message
         setName("");
         setEmail("");
         setCompany("");
         setMessage("");
         setSuccess("Your message has been sent successfully.");
-        setShowSuccess(false);
-        setTimeout(() => setShowSuccess(true), 10);
-        setTimeout(() => {
-          setShowSuccess(false);
-          setTimeout(() => setSuccess(""), 1000);
-        }, 10000);
+        setShowSuccess(true);
+        setTimeout(() => setShowSuccess(false), 10000);
       })
       .catch(() => {
+        // Show error message if email fails
         setError(
           "An error occurred. Please email me directly at stern7@outlook.com."
         );
-        setShowError(false);
-        setTimeout(() => setShowError(true), 10);
-        setTimeout(() => {
-          setShowError(false);
-          setTimeout(() => setError(""), 1000);
-        }, 20000);
+        setShowError(true);
+        setTimeout(() => setShowError(false), 20000);
       })
       .finally(() => setLoading(false));
   };
 
   return (
     <div className="isolate px-6 py-24 sm:pt-27 lg:px-8 page-swipe">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl fade-in-down">
+      {/* Page header with title and description */}
+      <header className="mx-auto max-w-2xl text-center">
+        <h1 className="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl fade-in-down">
           Get in touch
-        </h2>
+        </h1>
         <p className="mt-2 text-lg/8 text-gray-400 fade-in-down delay-0-3">
           I’m happy to answer any questions or explore ways we could work
           together.
         </p>
-      </div>
+      </header>
+
+      {/* Contact form */}
       <form
         action="#"
         method="POST"
         onSubmit={sendEmail}
         className="mx-auto mt-16 max-w-xl sm:mt-20"
       >
+        {/* Form fields */}
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+          {/* Name input */}
           <div className="fade-in-down delay-0-6">
             <label
               htmlFor="name"
@@ -111,6 +128,7 @@ export default function Contact() {
             </div>
           </div>
 
+          {/* Company input */}
           <div className="sm:col-span-1 fade-in-down delay-0-6">
             <label
               htmlFor="company"
@@ -130,6 +148,8 @@ export default function Contact() {
               />
             </div>
           </div>
+
+          {/* Email input */}
           <div className="sm:col-span-2 fade-in-down delay-0-9">
             <label
               htmlFor="email"
@@ -151,6 +171,7 @@ export default function Contact() {
             </div>
           </div>
 
+          {/* Message input */}
           <div className="sm:col-span-2 fade-in-down delay-1">
             <label
               htmlFor="message"
@@ -171,46 +192,42 @@ export default function Contact() {
             </div>
           </div>
         </div>
+
+        {/* Submit button */}
         <div className="mt-10 fade-in-down delay-2">
           <button
             type="submit"
-            disabled={loading} // optional: disable button while sending
+            disabled={loading}
+            aria-busy={loading}
             className={`block w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs
-    ${
-      loading
-        ? "bg-cyan-400 cursor-not-allowed animate-pulse"
-        : "bg-cyan-500 hover:bg-cyan-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500"
-    }
-  `}
+              ${
+                loading
+                  ? "bg-cyan-400 cursor-not-allowed animate-pulse"
+                  : "bg-cyan-500 hover:bg-cyan-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500"
+              }`}
           >
             {loading ? "Sending message..." : "Send message"}
           </button>
         </div>
-        {error && (
-          <div
-            className={`mt-10 transition-opacity duration-1000 ${
-              showError ? "opacity-100" : "opacity-0"
-            }`}
-          >
+
+        {/* Error message */}
+        {error && showError && (
+          <div className="mt-10">
             <p
               role="alert"
-              aria-live="assertive"
-              className="block w-full rounded-md bg-red-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs "
+              className="block w-full rounded-md bg-red-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs"
             >
               {error}
             </p>
           </div>
         )}
-        {success && (
-          <div
-            className={`mt-10 transition-opacity duration-1000 ${
-              showSuccess ? "opacity-100" : "opacity-0"
-            }`}
-          >
+
+        {/* Success message */}
+        {success && showSuccess && (
+          <div className="mt-10">
             <p
               role="status"
-              aria-live="polite"
-              className="block w-full rounded-md bg-green-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs "
+              className="block w-full rounded-md bg-green-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs"
             >
               {success}
             </p>

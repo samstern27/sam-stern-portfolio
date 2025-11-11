@@ -30,9 +30,12 @@ export default function AboutPage() {
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         ></div>
         <div className="mx-auto max-w-2xl text-center gap-5 flex flex-col">
-          <h2 className="text-5xl mt-9 sm:mt-0 font-semibold tracking-tight text-balance text-white sm:text-5xl fade-in-down delay-5">
-            About
-          </h2>
+          <header>
+            <h1 className="text-5xl mt-9 sm:mt-0 font-semibold tracking-tight text-balance text-white sm:text-5xl fade-in-down delay-5">
+              About
+            </h1>
+          </header>
+
           <p className="mt-2 text-md text-neutral-300 center-justified fade-in-down delay-7">
             I’m Sam, a front-end developer who enjoys creating practical
             solutions for real-world challenges. My background in hospitality
