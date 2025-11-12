@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function AboutPage() {
   return (
     <>
-      <div className="relative mb-10 page-swipe">
+      <div className="relative mb-10 page-swipe overflow-visable">
         {/* Bulb */}
         <Image
           src="/light.svg"

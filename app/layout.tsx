@@ -35,7 +35,7 @@ export default function RootLayout({
             </aside>
           </header>
 
-          <main className="flex-1 overflow-auto z-10 pt-14 pb-10">
+          <main className="flex-1 overflow-auto z-10 pt-10 pb-10">
             {children}
           </main>
           <Footer />
