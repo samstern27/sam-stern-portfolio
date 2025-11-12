@@ -1,11 +1,11 @@
 import TechStack from "@/components/TechStack";
-import BackgroundVideo from "@/components/BackgroundVideo";
+import ScrollToTop from "@/app/hooks/scroll";
 
 export default function Home() {
   return (
     <>
-      <BackgroundVideo />
-      <div className="flex flex-col justify-evenly items-center min-h-screen gap-20 w-full page-swipe">
+      <ScrollToTop />
+      <div className="relative w-screen h-[calc(100vh-10rem)] flex flex-col justify-center items-center gap-30 mt-15 sm:gap-50 overflow-hidden page-swipe">
         <header className="flex flex-col justify-center items-center gap-2 ">
           <h1 className="text-white text-center font-sans text-7xl md:text-9xl font-semibold tracking-tight leading-tight fade-in-down">
             Sam Stern

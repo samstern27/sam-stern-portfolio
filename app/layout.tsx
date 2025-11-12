@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import SocialLinks from "@/components/SocialLinks";
 import Footer from "@/components/Footer";
 import AnimationProvider from "@/context/AnimationContext";
+import ScrollToTop from "./hooks/scroll";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -17,14 +18,15 @@ const inter = Inter({
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-neutral-950 min-h-screen flex flex-col overflow-auto`}
+        className={`${inter.className} bg-neutral-950 min-h-screen flex flex-col overflow-x-hidden`}
       >
+        <ScrollToTop />
         <AnimationProvider>
           <header className="relative w-full z-[9999]">
             <Navbar />
@@ -33,7 +35,7 @@ export default function RootLayout({
             </aside>
           </header>
 
-          <main className="flex-1 h-[calc(100vh-3.531rem)] overflow-auto z-10">
+          <main className="flex-1 overflow-auto z-10 pt-14 pb-10">
             {children}
           </main>
           <Footer />

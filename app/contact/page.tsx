@@ -97,7 +97,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="isolate px-6 py-24 sm:pt-27 lg:px-8 page-swipe">
+    <div className="isolate px-6 py-24 sm:pt-27 lg:px-8 page-swipe overflow-x-hidden">
       {/* Page header with title and description */}
       <header className="mx-auto max-w-2xl text-center">
         <h1 className="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl fade-in-down">

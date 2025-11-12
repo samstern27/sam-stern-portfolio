@@ -19,26 +19,30 @@ export default function AnimationProvider({
   children: React.ReactNode;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
-
   const pathname = usePathname();
 
-  const fadeInVideo = () => {
-    gsap.to(".background-video", {
-      opacity: 0.2,
-      duration: 1.5,
-      ease: "power2.inOut",
-    });
+  // Fade in new page content on route change
+  const fadeInPage = () => {
+    if (!containerRef.current) return;
+    const targets =
+      containerRef.current.querySelectorAll<HTMLElement>(".page-swipe");
+    gsap.fromTo(
+      targets,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.1 }
+    );
   };
 
   useEffect(() => {
-    fadeInVideo();
+    fadeInPage();
   }, [pathname]);
 
   const animateLayout = (pageToPage: string): Promise<void> => {
     return new Promise((resolve) => {
       if (!containerRef.current) return resolve();
 
-      const targets = containerRef.current.querySelectorAll(".page-swipe");
+      const targets =
+        containerRef.current.querySelectorAll<HTMLElement>(".page-swipe");
       let yValue = 0;
 
       switch (pageToPage) {
@@ -69,15 +73,7 @@ export default function AnimationProvider({
         opacity: 0,
         duration: 1,
         ease: "power2.in",
-      }).to(
-        ".background-video",
-        {
-          opacity: 0,
-          duration: 1,
-          ease: "power2.inOut",
-        },
-        0
-      );
+      });
     });
   };
 

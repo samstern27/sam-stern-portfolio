@@ -40,7 +40,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="sticky top-0 w-full z-[9999] px-0 py-0 md:px-4 md:py-4 bg-neutral-900 border-b-1 border-b-neutral-700 box-border"
+      className="fixed top-0 w-full z-[9999] px-0 py-0 md:px-4 md:py-4 bg-neutral-900 border-b-1 border-b-neutral-700 box-border"
       aria-label="Main navigation"
     >
       <Link
