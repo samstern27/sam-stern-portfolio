@@ -21,11 +21,14 @@ export default function ProjectCard({
   width,
   height,
   alt,
+  className,
 }: CardData) {
   const isPortfolio = primaryUrl === github;
 
   return (
-    <article className="project-card flex md:flex-row glowing-border w-90 sm:w-120 md:w-full h-130 sm:h-140 md:h-70 flex-col px-3.5 sm:px-0 pt-4 sm:pt-0 opacity-0">
+    <article
+      className={`${className} project-card flex md:flex-row glowing-border w-90 sm:w-120 md:w-full h-130 sm:h-140 md:h-70 flex-col px-3.5 sm:px-0 pt-4 sm:pt-0 opacity-0`}
+    >
       {/* Image of website */}
       <div
         className="flex flex-col md:flex-row justify-start md:justify-evenly w-full sm:mt-4 md:mt-0 md:ml-5 md:pr-7 items-center

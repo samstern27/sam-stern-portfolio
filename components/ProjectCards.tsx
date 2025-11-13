@@ -30,7 +30,7 @@ export default function ProjectCards() {
   );
   return (
     <div
-      className="flex flex-col justify-center gap-10 items-center my-8 mx-auto w-full"
+      className="flex flex-col justify-center gap-10 items-center my-8 mx-auto w-full px-15"
       ref={containerRef}
     >
       {cardData.map((card) => (

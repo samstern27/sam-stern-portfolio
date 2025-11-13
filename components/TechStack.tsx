@@ -13,7 +13,7 @@ export default function TechStack() {
   // Duplicate logos array for infinite scroll
   const logos = useMemo(() => [...techStackLogos, ...techStackLogos], []);
   return (
-    <div className="w-250 overflow-hidden flex fade-wrapper bg-transparent mb-20">
+    <div className="w-200 overflow-hidden flex fade-wrapper bg-transparent mb-20">
       <ul
         className="flex gap-10 bg-transparent infinite-scroll"
         aria-hidden="true"

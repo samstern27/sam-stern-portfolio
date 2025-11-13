@@ -36,7 +36,7 @@ export type CardData = {
   width: number;
   height: number;
   alt: string;
-  
+  className: string;
 };
 
 export type SocialLinkData = {
@@ -54,3 +54,21 @@ export type AnimationContextType = {
   animateLayout: (action: string) => void;
 };
 
+export type DotsProps = {
+  rows?: number;
+  cols?: number;
+  size?: "xsmall" | "small" | "medium" | "large";
+  shape?: "round" | "square";
+  opacityFrom?: number;
+  opacityTo?: number;
+  duration?: number;
+  scaleFrom?: number;
+  scaleTo?: number;
+  stagger?: number;
+  xFrom?: number;
+  xTo?: number;
+  yFrom?: number;
+  yTo?: number;
+  repeat?: number;
+  yoyo?: boolean;
+}

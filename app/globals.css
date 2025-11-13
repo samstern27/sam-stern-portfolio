@@ -235,6 +235,18 @@
   opacity: var(--glow-intensity, 0.125);
 }
 
+.glow-1 {
+  animation-delay: 0s;
+}
+
+.glow-2 {
+  animation-delay: 1.33s;
+}
+
+.glow-3 {
+  animation-delay: 2.66s;
+}
+
 /* --------------------------------- Glowing Bulb ----------------------------- */
 
 
@@ -298,4 +310,20 @@
   background: linear-gradient(to left, transparent, transparent);
 }
 
+/* ---------------- Background --------------- */
 
+@theme inline {
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
+}

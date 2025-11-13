@@ -12,7 +12,7 @@ export const cardData: CardData[] = [
     width: 3350,
     height: 1866,
     alt: "Screenshot of Barbid",
-    
+    className: "glow-1",
   },
   {
     name: "UI Kit",
@@ -25,7 +25,7 @@ export const cardData: CardData[] = [
     width: 3338,
     height: 1858,
     alt: "Screenshot of UI Kit",
-    
+    className: "glow-2",
   },
   {
     name: "Portfolio",
@@ -38,6 +38,6 @@ export const cardData: CardData[] = [
     width: 3338,
     height: 1854,
     alt: "Screenshot of portfolio website",
-    
+    className: "glow-3",
   },
 ];
