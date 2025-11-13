@@ -22,6 +22,9 @@ export default function Dots({
   yTo = 0,
   repeat = 0,
   yoyo = false,
+  delay = 0,
+  rotateFrom = 0,
+  rotateTo = 0,
 }: DotsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const dotsRef = useRef<HTMLDivElement[]>([]);
@@ -30,7 +33,13 @@ export default function Dots({
   useGSAP(() => {
     gsap.fromTo(
       dotsRef.current,
-      { opacity: opacityFrom, scale: scaleFrom, x: xFrom, y: yFrom },
+      {
+        opacity: opacityFrom,
+        scale: scaleFrom,
+        x: xFrom,
+        y: yFrom,
+        rotate: rotateFrom,
+      },
       {
         opacity: opacityTo,
         scale: scaleTo,
@@ -41,6 +50,8 @@ export default function Dots({
         repeat: repeat,
         yoyo: yoyo,
         ease: "power2.inOut",
+        delay: delay,
+        rotate: rotateTo,
       }
     );
   });
@@ -51,6 +62,18 @@ export default function Dots({
     small: "w-1 h-1",
     medium: "w-2 h-2",
     large: "w-3 h-3",
+    xsmallShortLine: "w-0.5 h-1",
+    xsmallMediumLine: "w-0.5 h-3",
+    xsmallLongLine: "w-0.5 h-5",
+    smallShortLine: "w-1 h-3",
+    smallMediumLine: "w-1 h-5",
+    smallLongLine: "w-1 h-7",
+    mediumShortLine: "w-2 h-5",
+    mediumMediumLine: "w-2 h-7",
+    mediumLongLine: "w-2 h-9",
+    largeShortLine: "w-3 h-7",
+    largeMediumLine: "w-3 h-9",
+    largeLongLine: "w-3 h-11",
   };
 
   const shapeClass = shape === "round" ? "rounded-full" : "";
@@ -63,7 +86,7 @@ export default function Dots({
       ref={(el) => {
         if (el) dotsRef.current[i] = el;
       }}
-      className={`bg-neutral-400 border border-neutral-100 ${shapeClass} ${sizeClasses[size]} mx-auto my-auto dot`}
+      className={`bg-neutral-100 border border-neutral-100 ${shapeClass} ${sizeClasses[size]} mx-auto my-auto dot`}
     />
   ));
 
@@ -72,6 +95,7 @@ export default function Dots({
     <div
       className="grid gap-1 place-items-center"
       ref={containerRef}
+      aria-hidden="true"
       style={{
         gridTemplateColumns: `repeat(${cols}, auto)`,
         gridTemplateRows: `repeat(${rows}, auto)`,

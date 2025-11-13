@@ -9,7 +9,7 @@ import { socialLinkData } from "@/lib/socialLinkData";
 export default function SocialLinks() {
   return (
     <nav aria-label="Social links">
-      <ul className="flex flex-row md:items-center  md:flex-col">
+      <ul className="flex flex-row md:items-center  md:flex-col fade-in-left">
         {socialLinkData.map((link) => (
           <li key={link.id} className="md:my-3 mr-3">
             <a

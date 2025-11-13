@@ -167,17 +167,17 @@
 @property --clr-1 {
   syntax: "<color>";
   inherits: true;
-  initial-value: rgb(146, 47, 146);
+  initial-value: rgb(111, 93, 111);
 }
 @property --clr-2 {
   syntax: "<color>";
   inherits: true;
-  initial-value:  rgb(84, 97, 216);
+  initial-value:  rgb(145, 150, 190);
 }
 @property --clr-3 {
   syntax: "<color>";
   inherits: true;
-  initial-value: rgb(0, 115, 128);
+  initial-value: rgb(1, 83, 93);
 }
 
 @property --glow-deg {

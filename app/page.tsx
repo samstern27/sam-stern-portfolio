@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <ScrollToTop />
       <div className="relative w-screen h-[calc(100vh-10rem)] flex flex-col justify-center items-center gap-30 mt-15 sm:gap-50 overflow-hidden page-swipe">
-        <header className="flex flex-col justify-center items-center gap-2 ">
+        <header className="flex flex-col justify-center items-center gap-2 mt-15">
           <h1 className="text-white text-center font-sans text-7xl md:text-9xl font-semibold tracking-tight leading-tight fade-in-down">
             Sam Stern
           </h1>

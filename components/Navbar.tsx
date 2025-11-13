@@ -3,6 +3,7 @@
 import SocialLinks from "@/components/SocialLinks";
 import { links } from "@/lib/navLinkData";
 import Link from "next/link";
+import Dots from "./ui/dots";
 
 import NavLink from "@/components/NavLink";
 import { useState } from "react";
@@ -40,16 +41,29 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 w-full z-[9999] px-0 py-0 md:px-4 md:py-4 bg-neutral-900 border-b-1 border-b-neutral-700 box-border"
+      className="fixed top-0 w-full z-[9999] px-0 py-0 md:px-4 md:py-4 bg-neutral-900 border-b-1 border-b-neutral-700 box-border fade-in-down"
       aria-label="Main navigation"
     >
       <Link
         href="/"
         aria-label="Sam Stern logotype, also link to home page"
-        className="absolute top-6 left-5 md:top-4 text-neutral-300 text-center font-sans text-xl font-light tracking-tighter leading-tight swipe-in-left"
+        className="absolute top-6 left-5 md:top-4 text-neutral-300 text-center font-sans text-xl font-light tracking-tighter leading-tight "
       >
         sam stern
       </Link>
+      <div className="absolute top-8 md:top-6 left-25.5 z-[10000] opacity-90">
+        <Dots
+          size="small"
+          shape="square"
+          rows={2}
+          cols={1}
+          duration={2}
+          opacityFrom={0.2}
+          opacityTo={1}
+          repeat={-1}
+          yoyo={true}
+        />
+      </div>
       <div className="flex">
         {/* Desktop Navbar */}
         <div className="hidden md:flex justify-end items-center max-w-6xl ml-auto bg-neutral-900 ">

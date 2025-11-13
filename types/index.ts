@@ -57,8 +57,8 @@ export type AnimationContextType = {
 export type DotsProps = {
   rows?: number;
   cols?: number;
-  size?: "xsmall" | "small" | "medium" | "large";
-  shape?: "round" | "square";
+  size?: string;
+  shape?: string;
   opacityFrom?: number;
   opacityTo?: number;
   duration?: number;
@@ -71,4 +71,7 @@ export type DotsProps = {
   yTo?: number;
   repeat?: number;
   yoyo?: boolean;
+  delay?: number;
+  rotateFrom?: number;
+  rotateTo?: number;
 }

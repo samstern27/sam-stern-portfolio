@@ -35,8 +35,8 @@ export const cardData: CardData[] = [
     brief:
       "My personal site built with Next.js, React, and TypeScript to showcase projects, skills, and front-end expertise.",
     imageSrc: "/portfolio-image.png",
-    width: 3338,
-    height: 1854,
+    width: 3002,
+    height: 1668,
     alt: "Screenshot of portfolio website",
     className: "glow-3",
   },
