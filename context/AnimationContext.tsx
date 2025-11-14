@@ -37,39 +37,17 @@ export default function AnimationProvider({
     fadeInPage();
   }, [pathname]);
 
-  const animateLayout = (pageToPage: string): Promise<void> => {
+  const animateLayout = (): Promise<void> => {
     return new Promise((resolve) => {
       if (!containerRef.current) return resolve();
 
       const targets =
         containerRef.current.querySelectorAll<HTMLElement>(".page-swipe");
-      let yValue = 0;
-
-      switch (pageToPage) {
-        case "-projects":
-        case "-about":
-        case "-contact":
-        case "projects-about":
-        case "projects-contact":
-        case "projects-home":
-        case "contact-about":
-        case "contact-projects":
-        case "contact-home":
-          yValue = 100;
-          break;
-        case "about-home":
-        case "about-projects":
-        case "about-contact":
-          yValue = -100;
-          break;
-        default:
-          return resolve();
-      }
 
       const tl = gsap.timeline({ onComplete: resolve });
 
       tl.to(targets, {
-        y: yValue,
+        y: 100,
         opacity: 0,
         duration: 1,
         ease: "power2.in",

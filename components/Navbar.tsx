@@ -47,23 +47,11 @@ export default function Navbar() {
       <Link
         href="/"
         aria-label="Sam Stern logotype, also link to home page"
-        className="absolute top-6 left-5 md:top-4 text-neutral-300 text-center font-sans text-xl font-light tracking-tighter leading-tight "
+        className="absolute top-5.5 left-7 md:top-3.5 text-neutral-300 text-center font-sans text-xl font-light tracking-tighter leading-tight "
       >
         sam stern
       </Link>
-      <div className="absolute top-8 md:top-6 left-25.5 z-[10000] opacity-90">
-        <Dots
-          size="small"
-          shape="square"
-          rows={2}
-          cols={1}
-          duration={2}
-          opacityFrom={0.2}
-          opacityTo={1}
-          repeat={-1}
-          yoyo={true}
-        />
-      </div>
+
       <div className="flex">
         {/* Desktop Navbar */}
         <div className="hidden md:flex justify-end items-center max-w-6xl ml-auto bg-neutral-900 ">
