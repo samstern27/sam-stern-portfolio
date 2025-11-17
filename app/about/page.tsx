@@ -1,18 +1,18 @@
 export default function AboutPage() {
   return (
     <>
-      <div className="isolate px-6 md:px-30 py-24 sm:py-40 lg:px-8 page-swipe w-screen ">
+      <div className="isolate px-6 md:px-30 py-15 sm:py-30 lg:px-8 page-swipe w-screen ">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         ></div>
         <div className="mx-auto max-w-2xl text-center gap-5 flex flex-col">
           <header>
-            <h1 className="text-5xl mt-9 sm:mt-0 font-semibold tracking-tight text-balance text-white sm:text-5xl fade-in-down">
+            <h1 className="text-4xl mt-9 sm:mt-0 font-semibold tracking-tight text-balance text-white sm:text-5xl fade-in-down">
               About
             </h1>
           </header>
-          <section className="flex flex-col gap-5">
+          <section className="flex flex-col gap-10 mt-5">
             <p className="mt-2 text-md text-neutral-300 center-justified fade-in-down">
               I’m Sam, a front-end developer who enjoys creating practical
               solutions for real-world challenges. My background in hospitality
