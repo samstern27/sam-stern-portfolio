@@ -1,5 +1,7 @@
 "use client";
 
+// Custom GSAP animation for Projects tagline
+
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
@@ -43,7 +45,7 @@ export default function TaglineAnimation() {
         ease: "power3.inOut",
       });
 
-      // stop flashing after 5 seconds
+      // stop flashing after 2.6 seconds
       setTimeout(() => {
         flash.kill();
         gsap.set(cursorRef.current, { opacity: 1 });
