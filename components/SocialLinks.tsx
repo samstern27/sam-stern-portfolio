@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { socialLinkData } from "@/lib/socialLinkData";
+import Dots from "./ui/dots";
 
 /**
  * SocialLinks – renders social profile icons linking to external sites.
@@ -9,6 +10,42 @@ import { socialLinkData } from "@/lib/socialLinkData";
 export default function SocialLinks() {
   return (
     <nav aria-label="Social links">
+      <div className="absolute hidden md:block top-6 -left-5 z-[10000]">
+        <Dots
+          size="xsmallShortLine"
+          shape="round"
+          cols={1}
+          rows={1}
+          duration={1}
+          opacityFrom={1}
+          opacityTo={1}
+          xFrom={-100}
+          xTo={0}
+          repeat={0}
+          yoyo={false}
+          delay={0}
+          rotateFrom={90}
+          rotateTo={-90}
+        />
+      </div>
+      <div className="absolute hidden md:block top-19 -left-5 z-[10000]">
+        <Dots
+          size="xsmallShortLine"
+          shape="round"
+          cols={1}
+          rows={1}
+          duration={1}
+          opacityFrom={1}
+          opacityTo={1}
+          xFrom={-100}
+          xTo={0}
+          repeat={0}
+          yoyo={false}
+          delay={0.1}
+          rotateFrom={90}
+          rotateTo={-90}
+        />
+      </div>
       <ul className="flex flex-row md:items-center  md:flex-col fade-in-left">
         {socialLinkData.map((link) => (
           <li key={link.id} className="md:my-3 mr-3">

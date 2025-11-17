@@ -1,7 +1,7 @@
 export default function AboutPage() {
   return (
     <>
-      <div className="isolate px-6 py-24 sm:py-50 lg:px-8 page-swipe">
+      <div className="isolate px-6 md:px-30 py-24 sm:py-40 lg:px-8 page-swipe w-screen ">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"

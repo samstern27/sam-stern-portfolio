@@ -34,12 +34,16 @@ export default function NavLink({
        * Example: if pathname is "/about" and name is "contact",
        * this generates a unique animation key like "about-contact".
        */
-      await animateLayout(`${pathname?.slice(1)}-${name}`);
+      if (pathname !== href) {
+        await animateLayout(`${pathname?.slice(1)}-${name}`);
+      }
     } catch (err) {
       console.error("Animation error:", err);
     } finally {
       // After animation completes (or fails), proceed with navigation.
-      router.push(href);
+      if (pathname !== href) {
+        router.push(href);
+      }
     }
   };
   return (

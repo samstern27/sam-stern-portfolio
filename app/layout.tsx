@@ -32,62 +32,10 @@ export default function RootLayout({
         <AnimationProvider>
           <header className="relative w-full z-[9999]">
             <Navbar />
-            <aside className="hidden md:block absolute top-21 left-10 z-50">
+            <aside className="hidden md:block absolute top-21 left-10 z-50 opacity-50">
               <SocialLinks />
             </aside>
           </header>
-          <div className="absolute hidden md:block top-19 right-5 z-[10000] opacity-90">
-            <Dots
-              size="xsmall"
-              shape="round"
-              cols={3}
-              rows={10}
-              duration={2}
-              stagger={0.005}
-              opacityFrom={0}
-              opacityTo={1}
-              yFrom={430}
-              yTo={0}
-              repeat={0}
-              yoyo={false}
-            />
-          </div>
-          <div className="absolute hidden md:block top-26 left-5 z-[10000] opacity-40">
-            <Dots
-              size="xsmallMediumLine"
-              shape="round"
-              cols={1}
-              rows={1}
-              duration={1}
-              opacityFrom={1}
-              opacityTo={1}
-              xFrom={-100}
-              xTo={0}
-              repeat={0}
-              yoyo={false}
-              delay={0}
-              rotateFrom={90}
-              rotateTo={-90}
-            />
-          </div>
-          <div className="absolute hidden md:block top-39 left-5 z-[10000] opacity-40">
-            <Dots
-              size="xsmallMediumLine"
-              shape="round"
-              cols={1}
-              rows={1}
-              duration={1}
-              opacityFrom={1}
-              opacityTo={1}
-              xFrom={-100}
-              xTo={0}
-              repeat={0}
-              yoyo={false}
-              delay={0.1}
-              rotateFrom={90}
-              rotateTo={-90}
-            />
-          </div>
 
           {/* Aceternity UI background */}
           <AuroraBackground>

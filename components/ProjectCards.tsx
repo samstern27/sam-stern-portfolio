@@ -19,8 +19,8 @@ export default function ProjectCards() {
         {
           opacity: 1,
           x: 0,
-          delay: 0.5,
-          stagger: 0.5,
+          delay: 1.5,
+          stagger: 0.1,
           duration: 1,
           ease: "power2.out",
         }
@@ -30,7 +30,7 @@ export default function ProjectCards() {
   );
   return (
     <div
-      className="flex flex-col justify-center gap-10 items-center my-8 mx-auto w-full px-15"
+      className="flex flex-col justify-center gap-0 items-center my-8 mx-auto w-full px-15"
       ref={containerRef}
     >
       {cardData.map((card) => (

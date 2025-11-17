@@ -225,3 +225,12 @@
     }
   }
 }
+
+
+.gradient-text {
+  background: linear-gradient(90deg, #77d7d9, #9242c7, #ffffff); /* your gradient */
+  -webkit-background-clip: text; /* clip background to text */
+  -webkit-text-fill-color: transparent; /* make text transparent to show bg */
+  background-clip: text; /* standard property */
+  color: transparent; /* fallback for non-webkit */
+}

@@ -15,7 +15,7 @@ export default function ProjectCard({
 
   return (
     <article
-      className={`${className} project-card flex md:flex-row w-90 sm:w-120 md:w-full max-w-200 h-130 sm:h-140 md:h-70 flex-col px-3.5 sm:px-0 pt-4 sm:pt-0 opacity-0`}
+      className={`${className} project-card flex md:flex-row w-90 sm:w-120 md:w-full max-w-200 h-80  md:h-40 flex-col px-3.5 sm:px-0 pt-4 sm:pt-0 opacity-0`}
     >
       <div
         className="flex flex-col md:flex-row justify-start md:justify-evenly w-full sm:mt-4 md:mt-0 md:ml-5 md:pr-7 items-center
@@ -27,7 +27,7 @@ export default function ProjectCard({
             <h2 className="text-3xl w-40 font-semibold tracking-tight text-center md:text-left text-white">
               {name}
             </h2>
-            <p className="text-sm/7 text-center md:text-left max-w-60 sm:max-w-90 text-gray-400">
+            <p className="text-sm/7 text-center md:text-left max-w-60 sm:max-w-100 text-gray-400">
               {brief}
             </p>
           </div>
