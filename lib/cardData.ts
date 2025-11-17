@@ -15,6 +15,19 @@ export const cardData: CardData[] = [
     className: "glow-1",
   },
   {
+    name: "Portfolio",
+    github: "https://github.com/samstern27/sam-stern-portfolio",
+    vercel: "https://sam-sterns-portfolio.vercel.app/",
+    primaryUrl: "https://github.com/samstern27/sam-stern-portfolio",
+    brief:
+      "A modern, high-performance portfolio built with Next.js, React, and TypeScript — showcasing my projects, technical skills, and animation work powered by GSAP.",
+    imageSrc: "/portfolio-image.png",
+    width: 3002,
+    height: 1668,
+    alt: "Screenshot of portfolio website",
+    className: "glow-3",
+  },
+  {
     name: "UI Kit",
     github: "https://github.com/samstern27/UI-Kit",
     vercel: "https://ui-kit-sam-stern.vercel.app/",
@@ -26,18 +39,5 @@ export const cardData: CardData[] = [
     height: 1858,
     alt: "Screenshot of UI Kit",
     className: "glow-2",
-  },
-  {
-    name: "Portfolio",
-    github: "https://github.com/samstern27/sam-stern-portfolio",
-    vercel: "https://sam-sterns-portfolio.vercel.app/",
-    primaryUrl: "https://github.com/samstern27/sam-stern-portfolio",
-    brief:
-      "My personal site built with Next.js, React, and TypeScript to showcase projects, skills, and front-end expertise.",
-    imageSrc: "/portfolio-image.png",
-    width: 3002,
-    height: 1668,
-    alt: "Screenshot of portfolio website",
-    className: "glow-3",
   },
 ];
