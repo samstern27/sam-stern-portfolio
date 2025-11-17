@@ -5,8 +5,8 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 
 export default function TaglineAnimation() {
-  const taglineRef = useRef(null);
-  const cursorRef = useRef(null);
+  const taglineRef = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
   useGSAP(
     () => {
       // animate tagline width

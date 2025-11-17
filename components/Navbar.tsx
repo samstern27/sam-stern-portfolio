@@ -3,10 +3,9 @@
 import SocialLinks from "@/components/SocialLinks";
 import { links } from "@/lib/navLinkData";
 import Link from "next/link";
-import Dots from "./ui/dots";
 
 import NavLink from "@/components/NavLink";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 /**
@@ -19,7 +18,23 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const navRef = useRef<HTMLDivElement>(null);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        isMobileOpen &&
+        navRef.current &&
+        !navRef.current.contains(e.target as Node)
+      ) {
+        setIsMobileOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMobileOpen]);
 
   // Render navigation links; closes mobile menu on click if callback provided
   function NavLinks({ onClick }: { onClick?: () => void }) {
@@ -43,6 +58,7 @@ export default function Navbar() {
     <nav
       className="fixed top-0 w-full z-[9999] px-0 py-0 md:px-4 md:py-4 bg-neutral-900 border-b-1 border-b-neutral-700 box-border fade-in-down"
       aria-label="Main navigation"
+      ref={navRef}
     >
       <Link
         href="/"
