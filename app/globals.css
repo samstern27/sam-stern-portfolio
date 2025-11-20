@@ -1,7 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 /* ------------------------------- Fade In ---------------------------------- */
 
@@ -9,6 +13,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -24,7 +29,8 @@
 
 .fade-in-delay {
   animation: fadeIn 1s ease-in forwards;
-  animation-delay: 1.5s; /* Delay before starting */
+  animation-delay: 1.5s;
+  /* Delay before starting */
 }
 
 .light-fade {
@@ -40,6 +46,7 @@
     opacity: 0;
     transform: translateY(-1.25rem);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -56,9 +63,11 @@
 .delay-0-3 {
   animation-delay: 0.3s;
 }
+
 .delay-0-6 {
   animation-delay: 0.6s;
 }
+
 .delay-0-9 {
   animation-delay: 0.9s;
 }
@@ -66,45 +75,59 @@
 .delay-1 {
   animation-delay: 1.1s;
 }
+
 .delay-2 {
   animation-delay: 1.2s;
 }
+
 .delay-3 {
   animation-delay: 1.3s;
 }
+
 .delay-4 {
   animation-delay: 1.4s;
 }
+
 .delay-5 {
   animation-delay: 1.5s;
 }
+
 .delay-6 {
   animation-delay: 1.6s;
 }
+
 .delay-7 {
   animation-delay: 1.7s;
 }
+
 .delay-8 {
   animation-delay: 1.8s;
 }
+
 .delay-9 {
   animation-delay: 1.9s;
 }
+
 .delay-10 {
   animation-delay: 2s;
 }
+
 .delay-11 {
   animation-delay: 2.1s;
 }
+
 .delay-12 {
   animation-delay: 2.2s;
 }
+
 .delay-13 {
   animation-delay: 2.3s;
 }
+
 .delay-14 {
   animation-delay: 2.4s;
 }
+
 .delay-15 {
   animation-delay: 2.5s;
 }
@@ -115,6 +138,7 @@
   0% {
     transform: translateY(-10rem);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -131,6 +155,7 @@
     opacity: 0;
     transform: translateX(-3rem);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -168,6 +193,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(calc(-50% - 20px));
   }
@@ -212,12 +238,14 @@
 
 @theme inline {
   --animate-aurora: aurora 60s linear infinite;
+
   @keyframes aurora {
     from {
       background-position:
         50% 50%,
         50% 50%;
     }
+
     to {
       background-position:
         350% 50%,
@@ -228,9 +256,14 @@
 
 
 .gradient-text {
-  background: linear-gradient(90deg, #77d7d9, #9242c7, #ffffff); /* your gradient */
-  -webkit-background-clip: text; /* clip background to text */
-  -webkit-text-fill-color: transparent; /* make text transparent to show bg */
-  background-clip: text; /* standard property */
-  color: transparent; /* fallback for non-webkit */
+  background: linear-gradient(90deg, #77d7d9, #9242c7, #ffffff);
+  /* your gradient */
+  -webkit-background-clip: text;
+  /* clip background to text */
+  -webkit-text-fill-color: transparent;
+  /* make text transparent to show bg */
+  background-clip: text;
+  /* standard property */
+  color: transparent;
+  /* fallback for non-webkit */
 }

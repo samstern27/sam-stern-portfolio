@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import AnimationProvider from "@/context/AnimationContext";
 import ScrollToTop from "./hooks/scroll";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import Dots from "@/components/ui/dots";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -30,7 +29,7 @@ export default function RootLayout({
       >
         <ScrollToTop />
         <AnimationProvider>
-          <header className="relative w-full z-[9999]">
+          <header className="relative w-full z-[9999] ">
             <Navbar />
             <aside className="hidden md:block absolute top-21 left-10 z-50 opacity-50">
               <SocialLinks />
