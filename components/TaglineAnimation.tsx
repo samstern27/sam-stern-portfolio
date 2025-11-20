@@ -42,6 +42,7 @@ export default function TaglineAnimation() {
         y: 6,
         duration: 0.5,
         delay: 2,
+
         ease: "power3.inOut",
       });
 
