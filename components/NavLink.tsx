@@ -52,12 +52,12 @@ export default function NavLink({
       aria-label={aria}
       onClick={handleClick}
       className={clsx(
-        "relative inline-block text-md font-sans tracking-widest font-thin pb-[2px] md:pb-0 after:content-[''] after:absolute after:left-0 after:bottom-0 md:after:bottom-[-1.1em] after:h-[1px] after:w-full after:origin-left md:after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100 focus:text-cyan-700",
+        "relative inline-block text-md font-sans tracking-widest font-thin pb-[2px] md:pb-0 after:content-[''] after:absolute after:left-0 after:bottom-0 md:after:bottom-[-1.08rem] after:h-[1px] after:w-full after:origin-left md:after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100 focus:text-cyan-700",
         {
           "text-cyan-500 after:bg-cyan-500": isActive,
           "after:scale-x-100": isActive, // animate underline when active
           "text-cyan-50 after:scale-x-0 after:bg-cyan-50": !isActive,
-        }
+        },
       )}
     >
       {children}
