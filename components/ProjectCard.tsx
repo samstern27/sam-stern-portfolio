@@ -46,7 +46,7 @@ export default function ProjectCard({
             <span
               className="
                           absolute right-12 md:right-13 bottom-5 translate-y-1/2 
-                          text-neutral-500 text-xs
+                          text-neutral-200 text-xs
                           md:opacity-0 md:group-hover:opacity-100 md:transition-opacity md:duration-300
                         "
             >
@@ -81,7 +81,7 @@ export default function ProjectCard({
               <span
                 className="
                           absolute left-12 md:left-auto md:right-13 bottom-5 translate-y-1/2 
-                          text-neutral-500 text-xs  
+                          text-neutral-200 text-xs  
                           md:opacity-0 md:group-hover:opacity-100 md:transition-opacity md:duration-300
                         "
               >
