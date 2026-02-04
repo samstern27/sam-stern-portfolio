@@ -23,14 +23,14 @@ export default function ProjectCards() {
           stagger: 0.1,
           duration: 1,
           ease: "power2.out",
-        }
+        },
       );
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
   return (
     <div
-      className="flex flex-col justify-center gap-0 items-center my-8 mx-auto w-full px-15"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-8 justify-items-center my-8 mx-auto w-full px-15"
       ref={containerRef}
     >
       {cardData.map((card) => (

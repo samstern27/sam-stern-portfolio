@@ -2,6 +2,19 @@ import type { CardData } from "@/types";
 
 export const cardData: CardData[] = [
   {
+    name: "KCM (Beta)",
+    github: "https://github.com/samstern27/kitchen-cost-management",
+    vercel: "https://kitchen-cost-management.vercel.app/",
+    primaryUrl: "https://kitchen-cost-management.vercel.app/",
+    brief:
+      "A kitchen cost management platform that uses AI to extract supplier invoice data and calculate accurate ingredient and per-dish costs for chefs and food businesses. ",
+    imageSrc: "/kcm-image.png",
+    width: 3010,
+    height: 1708,
+    alt: "Screenshot of KCM",
+    className: "glow-1",
+  },
+  {
     name: "Barbid",
     github: "https://github.com/samstern27/barbid",
     vercel: "https://barbid.vercel.app/",

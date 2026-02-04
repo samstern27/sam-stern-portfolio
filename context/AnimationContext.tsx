@@ -26,11 +26,23 @@ export default function AnimationProvider({
     if (!containerRef.current) return;
     const targets =
       containerRef.current.querySelectorAll<HTMLElement>(".page-swipe");
-    gsap.fromTo(
-      targets,
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.1 }
-    );
+
+    // Remove y animation on mobile to prevent background animation restart
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      gsap.fromTo(
+        targets,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8, ease: "power2.out", stagger: 0.1 },
+      );
+    } else {
+      gsap.fromTo(
+        targets,
+        { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.1 },
+      );
+    }
   };
 
   useEffect(() => {
