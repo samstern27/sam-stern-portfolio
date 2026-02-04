@@ -23,11 +23,20 @@ export default function ProjectCard({
                  gap-5 sm:rounded-t-xl"
       >
         {/* Project title & brief */}
-        <div className="flex w-full flex-row justify-between items-start">
+        <div className="flex w-full flex-row justify-between items-start mt-5 md:mt-10">
           <div className="flex flex-col justify-start items-center md:items-start h-auto w-full gap-3 md:pr-15">
-            <h2 className="text-3xl font-semibold tracking-tight text-center md:text-left text-white">
-              {name}
-            </h2>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-3">
+              <h2 className="text-3xl font-semibold tracking-tight text-center md:text-left text-white">
+                {name}{" "}
+              </h2>
+              {isKcm && (
+                <span className="text-sm font-bold text-purple-300">
+                  {" "}
+                  (beta)
+                </span>
+              )}
+            </div>
+
             <p className="text-sm/7 text-center md:text-left max-w-60 sm:max-w-100 text-gray-400">
               {brief}
             </p>

@@ -2,7 +2,7 @@ import type { CardData } from "@/types";
 
 export const cardData: CardData[] = [
   {
-    name: "KCM (Beta)",
+    name: "KCM",
     github: "https://github.com/samstern27/kitchen-cost-management",
     vercel: "https://kitchen-cost-management.vercel.app/",
     primaryUrl: "https://kitchen-cost-management.vercel.app/",
