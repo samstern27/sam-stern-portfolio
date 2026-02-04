@@ -34,7 +34,10 @@ export default function ProjectCard({
             {isKcm && (
               <p className="text-xs italic text-center md:text-left max-w-60 sm:max-w-100 text-purple-300">
                 Testing the app? Use Stripe card 4242 4242 4242 4242 (any future
-                expiry, any CVC) to unlock AI features.
+                expiry, any CVC) to unlock AI features.{" "}
+                <span className="italic font-bold text-neutral-50">
+                  Note: marketing page is yet to be implemented.
+                </span>
               </p>
             )}
           </div>
